@@ -67,7 +67,9 @@ function createGrid(){
       g[r][c]=1;
     }
   }
-  g[hr+1][hc+2]=0;
+  // open the ghost-house doorway at center and also create a path out
+  g[hr+1][hc+2]=0; // center of house
+  g[hr+2][hc+2]=0; // open bottom tile so Pac-Man can exit the house
 
   return g;
 }
