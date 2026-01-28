@@ -4,35 +4,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Car Racing Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Car Racing</h1>
-    <div id="game-area">
-      <canvas id="gameCanvas" width="360" height="640"></canvas>
+    <header class="header">
+      <div class="logo">
+        <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <rect x="0" y="0" width="40" height="24" rx="6" fill="#0ea5a0"/>
+          <path d="M6 18L10 10H30L34 18H6Z" fill="#053f3a" opacity="0.9"/>
+        </svg>
+        <h1>Neon Race</h1>
+      </div>
+      <div class="header-right">
+        <div class="brand-sub">Built with HTML/CSS/JS</div>
+      </div>
+    </header>
 
-      <div id="ui">
-        <div id="score">Score: 0</div>
-        <div id="highscore">High: 0</div>
+    <div id="game-area" class="game-area">
+      <canvas id="gameCanvas" width="360" height="640" aria-label="Car racing game canvas"></canvas>
+
+      <div id="hud" class="hud">
+        <div id="score" class="chip">Score<br><span>0</span></div>
+        <div id="highscore" class="chip small">High<br><span>0</span></div>
       </div>
 
-      <div id="overlay" class="visible">
-        <div id="menu">
-          <h2>Car Racing</h2>
-          <p>Use ← → or A/D to move. Tap the buttons on mobile. Avoid other cars.</p>
-          <button id="startBtn">Start</button>
-          <button id="restartBtn" style="display:none">Restart</button>
+      <div id="overlay" class="overlay visible">
+        <div class="menu">
+          <div class="menu-top">
+            <div class="car-silhouette" aria-hidden>
+              <!-- Simple car SVG for decoration -->
+              <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" width="220" height="70">
+                <g fill="none" fill-rule="evenodd">
+                  <rect x="0" y="12" width="120" height="18" rx="6" fill="#0ea5a0" opacity="0.12"/>
+                  <path d="M8 28c7-6 14-6 22-6s14 0 22 6h-44z" fill="#0ea5a0" opacity="0.08"/>
+                </g>
+              </svg>
+            </div>
+            <h2>Neon Race</h2>
+            <p class="muted">Use ← → or A/D to move. Tap the on-screen buttons on mobile. Dodge the traffic and beat your high score.</p>
+          </div>
+
+          <div class="menu-body">
+            <div class="options">
+              <label class="option"><input type="radio" name="difficulty" value="easy"> Easy</label>
+              <label class="option"><input type="radio" name="difficulty" value="normal" checked> Normal</label>
+              <label class="option"><input type="radio" name="difficulty" value="hard"> Hard</label>
+            </div>
+
+            <div class="controls-row">
+              <button id="startBtn" class="btn primary">Start</button>
+              <button id="restartBtn" class="btn" style="display:none">Restart</button>
+            </div>
+
+            <div class="meta">
+              <div class="meta-item">High Score: <strong id="overlayHigh">0</strong></div>
+              <div class="meta-item muted">Version 1.1</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div id="controls">
-        <button id="leftBtn">◀</button>
-        <button id="rightBtn">▶</button>
+      <div id="controls" class="controls">
+        <button id="leftBtn" class="control-btn">◀</button>
+        <button id="rightBtn" class="control-btn">▶</button>
       </div>
     </div>
 
-    <footer>Built with HTML/CSS/JS — Enjoy!</footer>
+    <footer class="footer">© 2026 — Crafted with care</footer>
   </div>
 
   <script src="script.js"></script>
