@@ -95,9 +95,10 @@ function resetPellets(){
 }
 resetPellets();
 
+// Note: pac should start at the doorway cell (10,10) which is open in the ghost house.
 let pac = {
-  r: 11, c: 10,
-  x: 10*TILE + TILE/2, y: 11*TILE + TILE/2,
+  r: 10, c: 10,
+  x: 10*TILE + TILE/2, y: 10*TILE + TILE/2,
   dir: {x:0,y:0}, nextDir: {x:0,y:0},
   speed: 2.0,
   mouth:0,
@@ -122,7 +123,8 @@ resetGhosts();
 let score = 0, lives = 3, paused = false, playing = false, lastTime=0, ghostFearTimer = 0;
 function resetGame(){
   score = 0; lives = 3;
-  pac.r=11; pac.c=10; pac.x = pac.c*TILE+TILE/2; pac.y = pac.r*TILE+TILE/2;
+  // ensure pac starts on the open doorway tile (10,10)
+  pac.r=10; pac.c=10; pac.x = pac.c*TILE+TILE/2; pac.y = pac.r*TILE+TILE/2;
   pac.dir={x:0,y:0}; pac.nextDir={x:0,y:0};
   resetPellets(); resetGhosts(); ghosts.forEach(g=>g.speed = getGhostSpeed()); updateHUD();
 }
@@ -184,7 +186,7 @@ function update(dt){ let moveStep = pac.speed * (dt/16); if(!(pac.nextDir.x===0 
   updateHUD();
 }
 
-function loseLife(){ if(SOUND) deathSound(); lives--; if(lives<=0){ gameOver(); } else { pac.r=11; pac.c=10; pac.x = pac.c*TILE+TILE/2; pac.y = pac.r*TILE+TILE/2; pac.dir={x:0,y:0}; pac.nextDir={x:0,y:0}; resetGhosts(); paused = true; setTimeout(()=>{ paused=false; lastTime=performance.now(); requestAnimationFrame(loop); }, 1000); } }
+function loseLife(){ if(SOUND) deathSound(); lives--; if(lives<=0){ gameOver(); } else { pac.r=10; pac.c=10; pac.x = pac.c*TILE+TILE/2; pac.y = pac.r*TILE+TILE/2; pac.dir={x:0,y:0}; pac.nextDir={x:0,y:0}; resetGhosts(); paused = true; setTimeout(()=>{ paused=false; lastTime=performance.now(); requestAnimationFrame(loop); }, 1000); } }
 
 function gameOver(){ playing = false; overlay.style.display = 'flex'; menu.style.display = 'block'; menu.querySelector('h2').textContent = 'Game Over'; menu.querySelector('p').textContent = 'Score: ' + score; if(score > bestScore){ bestScore = score; localStorage.setItem('pac_best', bestScore); bestEl.textContent = bestScore; menu.querySelector('p').textContent += ' • New Best!'; } }
 
