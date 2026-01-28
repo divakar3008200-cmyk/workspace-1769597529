@@ -1,0 +1,80 @@
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+:root{
+  --bg-1: #061023;
+  --bg-2: #0f1b2d;
+  --accent: #ffd166;
+  --glass: rgba(255,255,255,0.04);
+  --glass-2: rgba(255,255,255,0.02);
+  --accent-2: #6be3c8;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#ecf3ff}
+body{background:linear-gradient(180deg,var(--bg-1),var(--bg-2));overflow:hidden}
+
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg .sky{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 10%, #16304a 0%, transparent 25%), linear-gradient(180deg,#071022 0%, #08111a 60%);opacity:0.9}
+.bg .horizon{position:absolute;left:0;right:0;bottom:0;height:220px;background:linear-gradient(180deg, rgba(10,12,20,0.0), rgba(0,0,0,0.45));}
+.bg .fog{position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006));}
+
+.app{position:relative;z-index:2;max-width:1100px;margin:40px auto;padding:22px}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.title{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9a66);box-shadow:0 8px 30px rgba(255,160,60,0.12);animation:floaty 3s ease-in-out infinite}
+.title h1{margin:0;font-size:20px;letter-spacing:0.6px}
+.tag{font-size:12px;color:#cbdcff;opacity:0.85}
+.header-actions{display:flex;gap:10px}
+button{border:0;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#eaf3ff}
+button.accent{background:linear-gradient(180deg,var(--accent),#ffb36b);color:#081018;box-shadow:0 10px 30px rgba(255,170,60,0.12)}
+button.small{padding:8px 10px;font-size:13px}
+
+.main{display:flex;gap:18px}
+.panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;box-shadow:0 10px 40px rgba(2,6,23,0.6);backdrop-filter: blur(8px);}
+.left{flex:1;min-height:520px}
+.right{width:300px}
+
+.narrative-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.day{font-weight:800;background:linear-gradient(90deg,#ffffff33,#ffffff11);padding:6px 10px;border-radius:10px}
+.narrative{height:360px;overflow:auto;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);}
+.scene-title{margin:0 0 8px 0;font-size:18px}
+.scene-text{margin:0;color:#dfeeff}
+
+.choices{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.choice{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
+.choice:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,0.5)}
+.choice.small{padding:8px}
+.choice.disabled{opacity:0.45;pointer-events:none}
+
+.hud{display:flex;flex-direction:column;gap:12px}
+.stat{display:flex;flex-direction:column;gap:6px}
+.label{font-size:12px;color:#cfe3ff;opacity:0.9}
+.meter{height:12px;background:var(--glass-2);border-radius:8px;overflow:hidden}
+.meter span{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.value{font-weight:800;color:#fff;text-align:right}
+.inventory{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02)}
+
+.controls{display:flex;gap:8px;justify-content:space-between}
+.info{font-size:13px;color:#c9dcff}
+.small{font-size:13px}
+.footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;color:#cbdcff;opacity:0.9}
+
+/* small screen adjustments */
+@media (max-width:900px){
+  .main{flex-direction:column}
+  .right{width:100%}
+  .narrative{height:280px}
+}
+
+/* tiny animations */
+.scene-text p{opacity:0;transform:translateY(6px);animation:enter .5s forwards}
+@keyframes enter{to{opacity:1;transform:none}}
+
+.pulse{animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+
+.muted{color:#b6c7ff;opacity:0.85}

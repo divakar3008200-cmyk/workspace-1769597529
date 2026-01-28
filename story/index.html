@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Afterlight — Story Survival</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg">
+    <div class="sky"></div>
+    <div class="horizon"></div>
+    <div class="fog"></div>
+  </div>
+
+  <div class="app">
+    <header class="header">
+      <div class="title">
+        <div class="logo"></div>
+        <div>
+          <h1>Afterlight</h1>
+          <div class="tag">A short story-driven survival demo</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="infoBtn" class="ghost">How to Play</button>
+        <button id="startBtn" class="accent">New Game</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="left panel" id="narrativePanel">
+        <div class="narrative-header">
+          <div class="day">Day <span id="day">0</span></div>
+          <div class="time">Morning</div>
+        </div>
+        <div class="narrative" id="narrative">
+          <h2 class="scene-title">Whispers in the Ash</h2>
+          <p class="scene-text" id="sceneText">Click "New Game" to begin your story. Each choice affects your health, hunger and supplies. Survive as many days as you can.</p>
+        </div>
+
+        <div class="choices" id="choices">
+          <!-- Choice buttons injected here -->
+        </div>
+      </section>
+
+      <aside class="right panel">
+        <div class="hud">
+          <div class="stat">
+            <div class="label">Health</div>
+            <div class="meter" id="healthBar"><span></span></div>
+            <div class="value" id="healthVal">100</div>
+          </div>
+          <div class="stat">
+            <div class="label">Hunger</div>
+            <div class="meter" id="hungerBar"><span></span></div>
+            <div class="value" id="hungerVal">0</div>
+          </div>
+          <div class="stat">
+            <div class="label">Morale</div>
+            <div class="meter" id="moralBar"><span></span></div>
+            <div class="value" id="moralVal">80</div>
+          </div>
+
+          <div class="inventory">
+            <div class="inv-title">Supplies</div>
+            <div id="supplies">0</div>
+          </div>
+
+          <div class="panel controls">
+            <button id="restBtn" class="ghost">Rest</button>
+            <button id="scavengeBtn" class="ghost">Scavenge</button>
+            <button id="fortifyBtn" class="ghost">Fortify</button>
+          </div>
+
+          <div class="panel info">
+            <div>Days survived: <strong id="survived">0</strong></div>
+            <div>Best: <strong id="best">0</strong></div>
+          </div>
+
+          <div class="panel small">
+            <div class="muted">Tip: Listen to the narration. Some choices open only after certain events.</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="credits">Built with ❤️ — Demo by AI</div>
+      <div class="controls-small">
+        <button id="saveBtn" class="ghost">Save</button>
+        <button id="loadBtn" class="ghost">Load</button>
+        <button id="restartBtn" class="accent small">Restart</button>
+      </div>
+    </footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
