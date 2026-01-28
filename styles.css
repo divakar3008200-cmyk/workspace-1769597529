@@ -1,0 +1,19 @@
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter, system-ui, Arial, sans-serif}
+body{background:#111;color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.container{width:380px}
+#game-area{position:relative;background:#222;border:6px solid #333;border-radius:10px;overflow:hidden}
+canvas{display:block;background:linear-gradient(#1b1b1b,#111);width:100%;height:auto}
+#ui{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;pointer-events:none}
+#score,#highscore{background:rgba(255,255,255,0.06);padding:6px 10px;border-radius:6px;font-weight:600}
+#overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6));display:flex;align-items:center;justify-content:center}
+#overlay.hidden{display:none}
+#menu{background:rgba(0,0,0,0.45);padding:18px;border-radius:8px;text-align:center}
+#menu h2{margin-bottom:8px}
+#menu p{font-size:13px;color:#ddd;margin-bottom:12px}
+#menu button{padding:10px 16px;border-radius:6px;border:none;background:#1fb6ff;color:#012;font-weight:700;cursor:pointer}
+#controls{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:12px}
+#controls button{width:64px;height:48px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:20px}
+footer{text-align:center;margin-top:12px;color:#ccc;font-size:13px}
+
+/* Mobile tweaks */
+@media(min-width:540px){.container{width:420px}}
