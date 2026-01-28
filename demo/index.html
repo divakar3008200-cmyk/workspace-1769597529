@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mini Pac-Man — Demo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="game-card">
+    <div class="game-area panel" style="min-width:560px;">
+      <div class="overlay" id="overlay">
+        <div class="menu" id="menu">
+          <h2>Mini Pac-Man</h2>
+          <p>A compact, stylish Pac‑Man with 3 ghosts. Use arrow keys or WASD to move. Eat power-pellets to make ghosts vulnerable!</p>
+          <div class="radio-row" id="diffRow">
+            <button data-diff="easy" class="diff active">Easy</button>
+            <button data-diff="normal" class="diff">Normal</button>
+            <button data-diff="hard" class="diff">Hard</button>
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;">
+            <button id="startBtn" class="play">Start Game</button>
+            <button id="tutorialBtn" class="secondary">How to Play</button>
+          </div>
+          <div class="small">Lives: 3 • Eat all pellets to win. Ghosts become blue when frightened.</div>
+        </div>
+      </div>
+
+      <canvas id="root"></canvas>
+    </div>
+
+    <div class="hud">
+      <div class="panel">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div class="logo"><div class="dot"></div><div style="font-weight:700">Mini Pac‑Man</div></div>
+          <div style="text-align:right">
+            <div style="font-size:12px;color:#cfd8ff">Best</div>
+            <div id="bestScore" style="font-size:18px;font-weight:800;color:var(--accent)">0</div>
+          </div>
+        </div>
+
+        <div class="stats" style="margin-top:12px;">
+          <div class="stat"><div class="small">SCORE</div><b id="score">0</b></div>
+          <div class="stat"><div class="small">LIVES</div><b id="lives">3</b></div>
+        </div>
+
+        <div class="controls" style="margin-top:12px;">
+          <button id="pauseBtn" class="secondary">Pause</button>
+          <button id="restartBtn">Restart</button>
+        </div>
+
+        <div class="legend" style="margin-top:12px">
+          <div class="chip"><div class="ghost-sample" style="background:#ff4950"></div> Blinky</div>
+          <div class="chip"><div class="ghost-sample" style="background:#55d4ff"></div> Inky</div>
+          <div class="chip"><div class="ghost-sample" style="background:#7aff7a"></div> Clyde</div>
+          <div style="flex:1"></div>
+        </div>
+
+        <div class="info" style="margin-top:10px;">
+          Eat all dots & power-pellets. Touching a ghost costs a life, unless it's blue — then eat it!
+        </div>
+      </div>
+
+      <div class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-weight:700">Controls</div>
+          <div style="opacity:0.9">Arrows / WASD</div>
+        </div>
+        <div style="margin-top:8px;font-size:13px;color:#cfd8ff">
+          - Power-pellets turn ghosts blue for a short time.<br>
+          - Each eaten ghost returns to the house and respawns.
+        </div>
+        <div style="margin-top:12px;text-align:center">
+          <button id="muteBtn" class="secondary">Toggle Sound</button>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:#97a1d9;text-align:center">Made with ❤️ — Simple demo</div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

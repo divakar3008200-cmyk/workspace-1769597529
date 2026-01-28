@@ -1,0 +1,40 @@
+:root{
+  --bg1: #0f1830;
+  --bg2: #061024;
+  --panel: rgba(255,255,255,0.06);
+  --accent: #ffd166;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.03);
+  --primary: #ffeb3b;
+}
+html,body{height:100%;margin:0;font-family: Inter, Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;background: radial-gradient(1000px 600px at 10% 10%, rgba(18, 24, 52, 0.6), transparent), linear-gradient(180deg, var(--bg1), var(--bg2));color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.wrap{min-height:100%;display:flex;align-items:center;justify-content:center;gap:28px;padding:28px;box-sizing:border-box}
+.game-card{display:flex;gap:18px;align-items:flex-start;background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));border-radius:16px;padding:18px;box-shadow: 0 8px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px) saturate(120%)}
+.game-area{position:relative;background: radial-gradient(circle at 20% 10%, rgba(255,255,255,0.015), transparent),rgba(0,0,0,0.06);border-radius:12px;padding:10px;box-sizing:border-box}
+canvas{display:block;background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:6px;image-rendering: pixelated;box-shadow: 0 6px 20px rgba(2,6,23,0.5), inset 0 1px 0 rgba(255,255,255,0.02);width: 560px;height: 560px}
+.hud{width:260px;display:flex;flex-direction:column;gap:12px}
+.panel{background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border-radius:12px;padding:12px;box-shadow: inset 0 1px 0 rgba(255,255,255,0.02)}
+h1{margin:0 0 6px 0;font-size:18px;letter-spacing:0.6px;color: #fff;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.logo{display:flex;gap:8px;align-items:center}
+.logo .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(255,200,80,0.4)}
+.stats{display:flex;gap:8px;margin-top:8px;align-items:center;justify-content:space-between}
+.stat{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:10px;padding:8px;width:48%;text-align:center}
+.stat b{display:block;font-size:20px;color:var(--primary); margin-bottom:2px}
+.controls{display:flex;gap:8px;margin-top:8px}
+button{border:0;background: linear-gradient(180deg, #ffd166, #ffb84d);padding:10px 12px;border-radius:10px;cursor:pointer;color:#08101a;font-weight:700;box-shadow: 0 8px 18px rgba(255,165,45,0.18), inset 0 1px 0 rgba(255,255,255,0.4);transition:transform .12s ease}
+button.secondary{background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,0.03);font-weight:600}
+button:active{ transform:translateY(1px)}
+.legend{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.chip{display:flex;gap:8px;background:var(--glass-2);padding:6px 8px;border-radius:10px;align-items:center;font-size:13px}
+.ghost-sample{width:18px;height:18px;border-radius:8px}
+.info{font-size:13px;color: #cfd8ff;margin-top:8px;line-height:1.25}
+.overlay{position:absolute;left:10px;top:10px;right:10px;bottom:10px;display:flex;align-items:center;justify-content:center;border-radius:10px;pointer-events:none}
+.menu{pointer-events:auto;width:100%;max-width:420px;padding:22px;border-radius:12px;background: linear-gradient(180deg, rgba(8,12,30,0.85), rgba(6,10,22,0.6));box-shadow:0 12px 40px rgba(2,6,23,0.6);text-align:center}
+.menu h2{ margin: 0 0 8px 0; font-size:20px }
+.menu p{ margin:0 0 16px 0; color:#cfd8ff }
+.radio-row{ display:flex; gap:8px; justify-content:center; margin-bottom:10px }
+.radio-row button{ padding:8px 12px; border-radius:8px; font-weight:700; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.04) }
+.menu button.play{ width:100%; padding:12px; font-size:16px; margin-top:8px }
+.small{ font-size:13px; color:#cbd5ff }
+@media (max-width:900px){.wrap{ padding:16px } .hud{ display:none } canvas{ width:360px; height:360px }}
+footer.attribution{margin-top:12px;font-size:12px;opacity:0.75;text-align:center}
